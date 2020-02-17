@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+
+{{!-- IF statement helper --}}
+{{# if condition }}
+  Condition is met
+ {{ else }}
+   Condition not met
+{{/ if }}
+
+{{!-- Each Loop --}}
+{{# each anyArray as |val key| }}
+  {{key}}: {{ val }}
+{{/each}}
+
+<div style="padding: 20px; color:tomato">
+  <form action="/test/submit" method="post">
+    <input type="text" name="id">
+    <button type="submit">Submit</button>
+  </form>
+</div>
