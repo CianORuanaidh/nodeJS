@@ -1,14 +1,14 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{!-- <p>Welcome to {{title}}</p>
 
-{{!-- IF statement helper --}}
+{{!-- IF statement helper - -}}
 {{# if condition }}
   Condition is met
  {{ else }}
    Condition not met
 {{/ if }}
 
-{{!-- Each Loop --}}
+{{!-- Each Loop - -}}
 {{# each anyArray as |val key| }}
   {{key}}: {{ val }}
 {{/each}}
@@ -18,4 +18,41 @@
     <input type="text" name="id">
     <button type="submit">Submit</button>
   </form>
-</div>
+</div> --}}
+
+{{# if success }}
+  <section>
+    <h2>Successfull Validation!</h2>
+  </section>
+{{else}}
+  {{# if errors}}
+    <section>
+      <ul>
+        {{# each errors }} 
+          <li>{{ this.msg }}</li>
+        {{/each}}    
+      </ul>
+    </section>
+  {{/if}}
+  <form action="/submit" method="post">
+    <div class="input">
+      <label for="email">
+        Email
+      </label>
+      <input type="text" id="email" name="email">
+    </div>
+    <div class="input">
+      <label for="password">
+        Password
+      </label>
+      <input type="password" id="password" name="password">
+    </div>
+      <div class="input">
+      <label for="confirmPassword">
+        Confirm Password
+      </label>
+      <input type="password" id="confirmPassword" name="confirmPassword">
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+{{/if}}
